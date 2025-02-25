@@ -1,9 +1,12 @@
 'use client';
 import { useEffect, useState } from 'react';
+import { LocaleSwitcherComponent } from '../common/locale-switcher.component';
+import { useTranslation } from '@/providers/i18n-provider';
 
 export const NavbarComponent = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const { t } = useTranslation();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -39,7 +42,7 @@ export const NavbarComponent = () => {
           onClick={toggleMenu}
           data-collapse-toggle="navbar-default"
           type="button"
-          className="inline-flex bg-white items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          className="inline-flex bg-white items-center mr-[100px] p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
           aria-controls="navbar-default"
           aria-expanded={isMenuOpen ? 'true' : 'false'}
         >
@@ -61,7 +64,7 @@ export const NavbarComponent = () => {
           </svg>
         </button>
         <div
-          className={`w-full md:block ${isMenuOpen ? 'md:block' : 'hidden'} md:w-auto absolute md:relative bg-white md:bg-transparent top-[60px] right-0 md:top-0`}
+          className={`w-full md:block ${isMenuOpen ? 'md:block' : 'hidden'} md:w-auto absolute md:relative bg-white md:bg-transparent top-[60px] right-0 md:right-10 md:top-0`}
           id="navbar-default"
         >
           <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-transparent md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 dark:border-gray-700">
@@ -71,7 +74,7 @@ export const NavbarComponent = () => {
                 className="block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500"
                 aria-current="page"
               >
-                Home
+                {t('Home')}
               </a>
             </li>
             <li>
@@ -107,6 +110,9 @@ export const NavbarComponent = () => {
               </a>
             </li>
           </ul>
+        </div>
+        <div className="absolute right-0">
+          <LocaleSwitcherComponent />
         </div>
       </div>
     </nav>

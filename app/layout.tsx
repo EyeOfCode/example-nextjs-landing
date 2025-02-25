@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import 'flowbite';
 import './globals.css';
+import I18nProvider from '@/providers/i18n-provider';
+
 import { NavbarComponent } from '@/components/layout/nvabar.component';
 import { FooterComponent } from '@/components/layout/footer.component';
 
@@ -30,9 +32,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <NavbarComponent />
-        <div>{children}</div>
-        <FooterComponent />
+        <I18nProvider>
+          <NavbarComponent />
+          <div>{children}</div>
+          <FooterComponent />
+        </I18nProvider>
       </body>
     </html>
   );
