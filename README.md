@@ -1,4 +1,6 @@
-# Landing page MyWebIdeal
+# Project nextjs template
+
+Example nextjs landing page
 
 ## stack
 
@@ -9,3 +11,11 @@
 - lint
 - prettier
 - i18n-self-custom
+- motion
+
+## run 
+- $npm run dev
+- $npm run build
+- $npm run start
+- $npm run lint
+- $npm run format
